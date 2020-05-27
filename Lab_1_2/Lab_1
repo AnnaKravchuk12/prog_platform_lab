@@ -1,0 +1,70 @@
+package lab1;
+
+public class Lab1 {
+
+ public Lab1() { }
+
+ static public void testResistor() {
+ 
+  Resistor r1 = new Resistor(2000, 1, 5);
+  Resistor r2 = new Resistor(3000, 1, 5);
+  Resistor r3 = new Resistor(240, 2, 10);
+  
+  
+  System.out.println("------ Test Resictor class -----");
+  System.out.println("R1 = " + r1);
+  System.out.println("R2 = " + r2);
+  System.out.println("R3 = " + r3);
+
+  //r2 = r1.addSequential(r2.addSequential(r3));
+  
+  Object r4 = r2.addParallel(r1);
+  System.out.println(r4 instanceof Resistor);
+  
+//  Object r6 = null;
+//  System.out.println(r6 instanceof Resistor);
+//  System.out.println(((Resistor) r6).getComfortableResistance());
+  
+  System.out.println("R4 = " + r4);
+  System.out.println("R2 = " + r2.getComfortableResistance());
+
+  
+  System.out.print("r1 equals r2 = ");
+  System.out.println(r1.equals(r3));
+ }
+ 
+ static public void testFraction() {
+  System.out.println();
+  System.out.println("------ Test Fraction class -----");
+  
+  
+
+  Fraction a = new Fraction(1, 2);
+  System.out.println(a.toString());
+  Fraction b = new Fraction(2, 3);
+  System.out.println(b.toString());
+  Fraction c = a.add(b);
+  System.out.println("Add = " 
+      + a + " + " + b + " = " + c);
+    c = a.sub(b);
+  System.out.println("Sub = " 
+      + a + " - " + b + " = " + c);
+          c = a.mul(b);
+  System.out.println("Mul = " 
+      + a + " * " + b + " = " + c);
+    c = a.div(b);
+  System.out.println("Div = " 
+      + a + " / " + b + " = " + c);
+  System.out.println(a.euklid(12, 18));
+  
+ }
+  
+
+ 
+public static void main(String[] args) {
+  
+  testResistor();
+  testFraction();
+  
+ };
+}
